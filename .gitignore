@@ -4,4 +4,5 @@ coverage
 .terraform.lock.hcl
 lambda.zip
 terraform.tfstate
+terraform.tfstate.*
 

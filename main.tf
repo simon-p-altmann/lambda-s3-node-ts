@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "ap-southeast-2" # Change to your desired region
+  region = var.aws_region
 }
 
 resource "aws_iam_role" "lambda_role" {
@@ -32,7 +32,7 @@ data "archive_file" "lambda_zip" {
 }
 
 resource "aws_lambda_function" "lambda_function" {
-  function_name = "node_lambda"
+  function_name = var.function_name
   role          = aws_iam_role.lambda_role.arn
   handler       = "handler.handler"
   runtime       = "nodejs20.x" # Change to the Node.js runtime version you are using
