@@ -1,5 +1,9 @@
 # AWS Lambda seed project for node typescript
 
+## lambda
+
+cd into lambda dir
+
 ### running locally
 
 ```
@@ -25,7 +29,11 @@ npm run test:unit
 npm run lint
 ```
 
-### terraform deploy
+## terraform
+
+cd into terraform dir
+
+## terraform deploy
 
 1. install terraform
 2. terraform init
