@@ -1,0 +1,31 @@
+{
+  "version": "2018-05-29",
+  "operation": "Invoke",
+  "payload": {
+    "field": "getExample",
+    "arguments": {
+      "id": "123"
+    },
+    "source": null,
+    "request": {
+      "headers": {
+        "x-forwarded-for": "1.2.3.4",
+        "x-api-key": "your-api-key"
+      }
+    },
+    "identity": {
+      "cognitoIdentityPoolId": null,
+      "accountId": "123456789012",
+      "cognitoIdentityId": "us-east-1:abcd1234-ef56-7890-abcd-1234567890ab",
+      "caller": "AIDACKCEVSQ6C2EXAMPLE",
+      "sourceIp": ["1.2.3.4"],
+      "principalOrgId": null,
+      "accessKey": "ASIAEXAMPLE",
+      "cognitoAuthenticationType": null,
+      "cognitoAuthenticationProvider": null,
+      "userArn": "arn:aws:iam::123456789012:user/example",
+      "userAgent": "Mozilla/5.0",
+      "user": "AIDACKCEVSQ6C2EXAMPLE"
+    }
+  }
+}
