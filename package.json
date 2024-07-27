@@ -28,6 +28,7 @@
     "eslint": "^8.57.0",
     "rimraf": "^6.0.1",
     "serverless": "^3.39.0",
-    "serverless-offline": "^13.6.0"
+    "serverless-offline": "^13.6.0",
+    "zip-folder": "^1.0.0"
   }
 }

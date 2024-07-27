@@ -1,12 +1,7 @@
 const handler = require('../dist/handler.js')
 const MOCK_APPSYNC_EVENT = require('../test/data/appsync-event-mock.json')
 
-// Define a sample event object
-const event = {
-    key1: 'value1',
-    key2: 'value2',
-    key3: 'value3'
-};
+
 
 // Define a sample context object
 const context = {

@@ -24,3 +24,10 @@ npm run test:unit
 ```
 npm run lint
 ```
+
+### terraform deploy
+
+1. install terraform
+2. terraform init
+3. terraform apply
+4. terraform deploy
