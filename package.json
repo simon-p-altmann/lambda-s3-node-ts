@@ -8,7 +8,8 @@
     "start": "npm run build && node local/runner.js",
     "test": "jest",
     "test:unit": "jest --coverage",
-    "build": "npm run clean && tsc",
+    "copy-node-modules": "cpx \"node_modules/**/*\" dist/node_modules",
+    "build": "npm run clean && tsc && npm run copy-node-modules",
     "lint": "eslint src"
   },
   "author": "simon.p.altmnn@gmail.com",
@@ -25,6 +26,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^7.17.0",
     "@typescript-eslint/parser": "^7.17.0",
+    "cpx": "^1.5.0",
     "eslint": "^8.57.0",
     "rimraf": "^6.0.1",
     "serverless": "^3.39.0",
