@@ -9,7 +9,7 @@
     "test": "jest",
     "test:unit": "jest --coverage",
     "copy-node-modules": "cpx \"node_modules/**/*\" dist/node_modules",
-    "build": "npm run clean && tsc && npm run copy-node-modules",
+    "build": "npm run clean && node esbuild.config.js",
     "lint": "eslint src"
   },
   "author": "simon.p.altmnn@gmail.com",
@@ -27,6 +27,7 @@
     "@typescript-eslint/eslint-plugin": "^7.17.0",
     "@typescript-eslint/parser": "^7.17.0",
     "cpx": "^1.5.0",
+    "esbuild": "^0.23.0",
     "eslint": "^8.57.0",
     "rimraf": "^6.0.1",
     "serverless": "^3.39.0",
