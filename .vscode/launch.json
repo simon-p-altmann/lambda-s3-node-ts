@@ -5,7 +5,7 @@
             "type": "node",
             "request": "launch",
             "name": "Run Local Runner",
-            "program": "${workspaceFolder}/lambda/local/runner.js",
+            "program": "${workspaceFolder}/local/runner.js",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
