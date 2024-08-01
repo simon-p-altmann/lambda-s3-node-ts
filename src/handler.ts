@@ -22,7 +22,6 @@ export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayPr
 
   switch(urlType)
   {
-
     case URL_TYPES.UPLOAD:
       return await getUploadURL(bucketName,key,expiresIn);
     case URL_TYPES.DOWNLOAD:
@@ -41,10 +40,11 @@ export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayPr
 };
 
 export const getUploadURL = async (bucketName:string, key:string, expiresIn:number) => {
-  console.log('getUploadURL')
+  console.log('getUploadURL>>')
   try {
   
     const url = await generateUploadURL(bucketName, key, expiresIn );
+    console.log('url ' + url)
     return {
       statusCode: 200,
       body: JSON.stringify({ "url": url}),
@@ -67,6 +67,7 @@ export const getDownloadURL = async (bucketName:string, key:string, expiresIn:nu
   try {
 
     const url = await generateDownloadURL(bucketName, key, expiresIn );
+    
     return {
       statusCode: 200,
       body: JSON.stringify({ "url": url}),
