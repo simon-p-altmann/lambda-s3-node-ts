@@ -1,5 +1,5 @@
 const handler = require('../dist/handler.js')
-const MOCK_APPSYNC_EVENT = require('../test/data/appsync-event-mock.json')
+const MOCK_APPSYNC_EVENT = require('../test/data/request/upload-api-request-mock.json')
 
 
 

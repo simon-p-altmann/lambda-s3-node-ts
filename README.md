@@ -28,14 +28,3 @@ npm run test:unit
 ```
 npm run lint
 ```
-
-## terraform
-
-cd into terraform dir
-
-## terraform deploy
-
-1. install terraform
-2. terraform init
-3. terraform apply
-4. terraform deploy

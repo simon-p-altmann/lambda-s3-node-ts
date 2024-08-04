@@ -1,0 +1,3 @@
+{
+  "url": "https://timmy.s3.ap-southeast-2.amazonaws.com/a-key?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAV54KKESZY3VIY2KW%2F20240803%2Fap-southeast-2%2Fs3%2Faws4_request&X-Amz-Date=20240803T234749Z&X-Amz-Expires=5000&X-Amz-Signature=120177035be25a5efff4af611fc802840f8f8329734f205ae0b75192bb03fe7c&X-Amz-SignedHeaders=host&x-id=PutObject"
+}
