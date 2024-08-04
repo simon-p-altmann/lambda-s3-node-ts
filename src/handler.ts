@@ -6,6 +6,7 @@ import { HttpStatus } from './model/http-status-codes'
 export const UNKNOWN_REQUEST_ERROR = 'ERROR : UNKNOWN REQUEST'
 export const UNKNOWN_URL_UPLOAD_ERROR = 'ERROR : generating upload URL'
 export const UNKNOWN_URL_DOWNLOAD_ERROR = 'ERROR : generating download URL'
+export const MISSING_PARAMETERS_ERROR = 'ERROR : Missing required parameter(s):'
 export const DEAFULT_EXPIRES_IN = 5000
 
 export const BAD_URL_TYPE_RESPONSE = apiResponse(HttpStatus.BadRequest,UNKNOWN_REQUEST_ERROR);
@@ -26,9 +27,9 @@ export const handler = async (event: ApiRequestEvent ): Promise<APIGatewayProxyR
   console.log('event passed in ' + eventPretty + '\n');
 
 
-  const urlType = event?.arguments?.urlType || 'unknown url';
-  const bucketName =  event?.arguments?.bucket || 'unknown bucket';
-  const key =  event?.arguments?.key || 'unknown key ';
+  const urlType = event?.arguments?.urlType ;
+  const bucketName =  event?.arguments?.bucket ;
+  const key =  event?.arguments?.key ;
   const expiresIn = DEAFULT_EXPIRES_IN;
 
   validateEventData(urlType,bucketName,key)
@@ -83,7 +84,7 @@ export function validateEventData(urlType:string,bucketName:string,key:string){
     if (!urlType) missingParams.push('urlType');
     if (!bucketName) missingParams.push('bucket');
     if (!key) missingParams.push('key');
-      return apiResponse(HttpStatus.InternalServerError,`Missing required parameter(s): ${missingParams.join(', ')}`)
+      return apiResponse(HttpStatus.InternalServerError,`${MISSING_PARAMETERS_ERROR} ${missingParams.join(', ')}`)
     };
 
 }

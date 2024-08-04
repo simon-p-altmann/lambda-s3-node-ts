@@ -4,9 +4,9 @@ import { generateUploadURL, generateDownloadURL } from '../src/service/s3-client
 import { ApiRequestEvent } from '../src/model/api-request-event';
 import { apiResponse } from '../src/model/api-reponse';
 import { HttpStatus } from '../src/model/http-status-codes';
-import { handler, getUploadURL, getDownloadURL, UNKNOWN_REQUEST_ERROR, UNKNOWN_URL_UPLOAD_ERROR, UNKNOWN_URL_DOWNLOAD_ERROR, DEAFULT_EXPIRES_IN, URL_TYPES, BAD_URL_TYPE_RESPONSE, BAD_UPLOAD_URL_RESPONSE, BAD_DOWNLOAD_URL_RESPONSE } from '../src/handler';
+import { handler, getUploadURL, getDownloadURL, UNKNOWN_REQUEST_ERROR, UNKNOWN_URL_UPLOAD_ERROR, UNKNOWN_URL_DOWNLOAD_ERROR, DEAFULT_EXPIRES_IN, URL_TYPES, BAD_URL_TYPE_RESPONSE, BAD_UPLOAD_URL_RESPONSE, BAD_DOWNLOAD_URL_RESPONSE, validateEventData } from '../src/handler';
 import {API_UPLOAD_REQUEST_MOCK,API_DOWNLOAD_REQUEST_MOCK,API_BAD_BUCKET_REQUEST_MOCK,API_BAD_KEY_REQUEST_MOCK,API_BAD_URLTYPE__REQUEST_MOCK} from '../test/data/request/url-requests'
-import {API_REPONSE_BAD_URL_, API_RESPONSE_SUCCESS_DOWNLOAD, API_RESPONSE_SUCCESS_UPLOAD, DOWNLOAD_URL_MOCK, UPLOAD_URL_MOCK} from '../test/data/response/api-mock-responses'
+import {API_REPONSE_BAD_URL_, API_RESPONSE_SUCCESS_DOWNLOAD, API_RESPONSE_SUCCESS_UPLOAD, MISSING_BUCKET_RESPONSE, DOWNLOAD_URL_MOCK, UPLOAD_URL_MOCK, MISSING_KEY_RESPONSE, MISSING_URL_TYPE_RESPONSE} from '../test/data/response/api-mock-responses'
 
 
 
@@ -71,6 +71,47 @@ describe('Handler', () => {
     const result = await getDownloadURL('test-bucket', 'test-key', DEAFULT_EXPIRES_IN);
     expect(result).toStrictEqual(BAD_DOWNLOAD_URL_RESPONSE);
   });
+
+  test('should handle missing url in json payload', async () => {
+   
+
+    // ARRANGE
+    const bucketName = ''
+    const key = "key"
+    const urlType = URL_TYPES.UPLOAD
+
+
+    const result =  validateEventData(urlType,bucketName,key);
+    expect(result).toStrictEqual(MISSING_BUCKET_RESPONSE);
+  });
+
+  test('should handle missing key in json payload', async () => {
+   
+
+    // ARRANGE
+    const bucketName = 'timmy'
+    const key = ''
+    const urlType = URL_TYPES.UPLOAD
+
+
+    const result =  validateEventData(urlType,bucketName,key);
+    expect(result).toStrictEqual(MISSING_KEY_RESPONSE);
+  });
+
+  test('should handle missing urlType  in json payload', async () => {
+   
+
+    // ARRANGE
+    const bucketName = 'aBucket'
+    const key = 'key'
+    const urlType = ''
+
+
+    const result =  validateEventData(urlType,bucketName,key);
+    expect(result).toStrictEqual(MISSING_URL_TYPE_RESPONSE);
+  });
+
+
 
 
 });
