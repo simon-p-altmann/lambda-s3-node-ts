@@ -43,7 +43,7 @@ export const handler = async (event: ApiRequestEvent ): Promise<APIGatewayProxyR
     case URL_TYPES.DOWNLOAD:
       return await getDownloadURL(bucketName,key,expiresIn);
     default :
-      console.error("error>>>> " + UNKNOWN_REQUEST_ERROR)
+      console.error("error " + UNKNOWN_REQUEST_ERROR)
       return BAD_URL_TYPE_RESPONSE;
 
   }
@@ -51,7 +51,7 @@ export const handler = async (event: ApiRequestEvent ): Promise<APIGatewayProxyR
 };
 
 export const getUploadURL = async (bucketName:string, key:string, expiresIn:number):Promise<APIGatewayProxyResult>=> {
-  console.log('getUploadURL>>')
+  console.log('getUploadURL')
   try {
   
     const url = await generateUploadURL(bucketName, key, expiresIn );
